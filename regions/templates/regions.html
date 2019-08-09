@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{%block content %}
+    
+
+    <div class="row">
+            <div class="col-xs-6 col-sm-6 col-lg-6">
+                    <h1>Regiones</h1>
+                    <ul>
+                            {% for region in regions %}
+                    
+                            <a href="{%url 'update_region' region.id_region%}">
+                                <li>{{region.region_name}}</li>
+                            </a>
+        
+                            {% endfor %}
+                        </ul>
+                        <a href="{% url 'create_region' %}"><button type="button" class="btn btn-primary">Crear Nueva Región</button></a>
+                        
+            </div>
+
+
+
+            <div class="col-xs-6 col-sm-6 col-lg-6">
+                    <h1>Ciudades</h1>
+                    <ul>
+                        {% for commune in communes %}
+                
+                        <a href="{%url 'update_commune' commune.id_commune%}">
+                            <li>{{commune.commune_name}}</li>
+                        </a>
+                  
+                        {% endfor %}
+                    </ul>
+                
+                    <a href="{% url 'create_commune' %}"><button type="button" class="btn btn-primary">Crear Nueva Ciudad</button></a>
+
+                    
+            </div>
+          </div>
+
+
+
+
+
+
+{% endblock %}

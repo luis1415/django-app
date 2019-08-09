@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{%block content %}
+    <h1>Nueva Ciudad</h1>
+
+
+    <form method="POST">
+        {% csrf_token %}
+        {{form |crispy }}
+        <button type="submit" class="btn btn-success">Guardar</button>
+    </form>
+    <br>
+
+    {% if commune %}
+        <a href="{% url 'delete_commune' commune.id_commune %}"><button type="button" class="btn btn-danger">Eliminar</button></a>
+    {% endif %}
+{% endblock %}
